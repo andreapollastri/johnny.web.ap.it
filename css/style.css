@@ -323,7 +323,7 @@ img {
   font-size: 0.8125rem;
   line-height: 1.9;
   color: #cbd5e1;
-  white-space: pre;
+  white-space: nowrap;
   overflow-x: auto;
   -webkit-overflow-scrolling: touch;
   overscroll-behavior-x: contain;
@@ -609,8 +609,7 @@ img {
   font-family: var(--font-mono);
   font-size: 0.8125rem;
   color: #e2e8f0;
-  white-space: pre;
-  tab-size: 2;
+  white-space: nowrap;
   overflow-x: auto;
   -webkit-overflow-scrolling: touch;
   overscroll-behavior-x: contain;
@@ -1067,7 +1066,6 @@ img {
     padding: 1rem;
     font-size: 0.6875rem;
     line-height: 1.8;
-    white-space: pre;
     overflow-x: auto;
     -webkit-overflow-scrolling: touch;
     overscroll-behavior-x: contain;
@@ -1186,12 +1184,11 @@ img {
     font-size: 0.875rem;
   }
 
-  /* ── Code blocks mobile: same layout as desktop, scroll horizontally if needed ── */
+  /* ── Code blocks mobile (inherits white-space: nowrap from base) ── */
   .code-block {
     padding: 0.875rem 1rem;
     font-size: 0.6875rem;
     line-height: 1.75;
-    white-space: pre;
     overflow-x: auto;
     -webkit-overflow-scrolling: touch;
     overscroll-behavior-x: contain;
