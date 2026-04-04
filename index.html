@@ -35,7 +35,7 @@
 
   <!-- ── Nav ────────────────────────────────── -->
   <nav class="nav" id="nav">
-    <div class="nav-inner">
+    <div class="nav-shell">
       <a href="#" class="nav-logo">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
           stroke-linejoin="round">
@@ -47,7 +47,7 @@
         </svg>
         Johnny
       </a>
-      <ul class="nav-links" id="navLinks">
+      <ul class="nav-links" id="navLinks" aria-label="Main navigation">
         <li><a href="#features">Features</a></li>
         <li><a href="#architecture">Architecture</a></li>
         <li><a href="#quickstart">Quick Start</a></li>
@@ -63,7 +63,8 @@
           </a>
         </li>
       </ul>
-      <button class="nav-mobile-toggle" id="navToggle" aria-label="Toggle menu">
+      <button type="button" class="nav-mobile-toggle" id="navToggle" aria-label="Open menu" aria-expanded="false"
+        aria-controls="navLinks">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
           <line x1="3" y1="6" x2="21" y2="6" />
           <line x1="3" y1="12" x2="21" y2="12" />
@@ -594,14 +595,29 @@
       nav.classList.toggle('scrolled', window.scrollY > 10);
     });
 
-    document.getElementById('navToggle').addEventListener('click', () => {
-      document.getElementById('navLinks').classList.toggle('open');
+    const navLinks = document.getElementById('navLinks');
+    const navToggle = document.getElementById('navToggle');
+
+    function setNavOpen(open) {
+      navLinks.classList.toggle('open', open);
+      document.documentElement.classList.toggle('nav-open', open);
+      document.body.classList.toggle('nav-open', open);
+      navToggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+      navToggle.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
+    }
+
+    navToggle.addEventListener('click', () => {
+      setNavOpen(!navLinks.classList.contains('open'));
     });
 
     document.querySelectorAll('#navLinks a').forEach(link => {
-      link.addEventListener('click', () => {
-        document.getElementById('navLinks').classList.remove('open');
-      });
+      link.addEventListener('click', () => setNavOpen(false));
+    });
+
+    window.addEventListener('resize', () => {
+      if (window.matchMedia('(min-width: 641px)').matches) {
+        setNavOpen(false);
+      }
     });
 
     const observer = new IntersectionObserver(
