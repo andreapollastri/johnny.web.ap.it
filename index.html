@@ -12,15 +12,21 @@
 
   <meta property="og:title" content="Johnny — Self-hosted S3 Storage Platform">
   <meta property="og:description"
-    content="S3-compatible object storage, automated SFTP backups, and an elegant web panel — in one install.">
+    content="S3-compatible object storage, automated SFTP backups, and an elegant web panel — in one install. Powered by Garage.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://johnny.web.ap.it">
+  <meta property="og:image" content="https://johnny.web.ap.it/hero.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:site_name" content="Johnny">
 
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Johnny — Self-hosted S3 Storage Platform">
   <meta name="twitter:description"
-    content="S3-compatible object storage, automated SFTP backups, and an elegant web panel — in one install.">
+    content="S3-compatible object storage, automated SFTP backups, and an elegant web panel — in one install. Powered by Garage.">
+  <meta name="twitter:image" content="https://johnny.web.ap.it/hero.png">
 
+  <link rel="canonical" href="https://johnny.web.ap.it">
   <link rel="icon"
     href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%230f172a' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><path d='M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z'/><polyline points='3.27 6.96 12 12.01 20.73 6.96'/><line x1='12' y1='22.08' x2='12' y2='12'/></svg>">
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -29,6 +35,34 @@
     href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap"
     rel="stylesheet">
   <link rel="stylesheet" href="css/style.css">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "Johnny",
+    "headline": "Self-hosted S3 Storage Platform",
+    "description": "S3-compatible object storage, automated SFTP backups, and an elegant web panel — in one install. Powered by Garage.",
+    "url": "https://johnny.web.ap.it",
+    "image": "https://johnny.web.ap.it/hero.png",
+    "applicationCategory": "DeveloperApplication",
+    "operatingSystem": "Linux",
+    "license": "https://github.com/andreapollastri/johnny/blob/main/LICENSE",
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "USD"
+    },
+    "author": {
+      "@type": "Person",
+      "name": "Andrea Pollastri",
+      "url": "https://github.com/andreapollastri"
+    },
+    "codeRepository": "https://github.com/andreapollastri/johnny",
+    "programmingLanguage": ["PHP", "Shell", "Python"],
+    "softwareRequirements": "Ubuntu 24.04 LTS"
+  }
+  </script>
 </head>
 
 <body>
@@ -78,7 +112,8 @@
   <section class="hero">
     <div class="hero-badge">Open Source &middot; MIT License</div>
     <h1>Your storage.<br><span>Your rules.</span></h1>
-    <p class="hero-sub">S3-compatible object storage on your own VPS &mdash; with automated backups, a web panel, a CLI, and a full REST API. Powered by Garage, secured by Caddy.</p>
+    <p class="hero-sub">S3-compatible object storage on your own VPS &mdash; with automated backups, a web panel, a CLI,
+      and a full REST API. Powered by Garage, secured by Caddy.</p>
     <div class="hero-actions">
       <a href="#quickstart" class="btn btn-primary">
         Get Started
@@ -114,6 +149,11 @@
         <span class="prompt">$</span> aws s3 ls <span class="flag">--endpoint-url</span> "$AWS_ENDPOINT_URL"
       </div>
     </div>
+
+    <div class="hero-screenshot fade-in">
+      <img src="hero.png" alt="Johnny Web Panel — Dashboard, Buckets, Settings and Sign-in screens" width="1200"
+        height="630" loading="eager">
+    </div>
   </section>
 
   <!-- ── Features ───────────────────────────── -->
@@ -135,7 +175,8 @@
             </svg>
           </div>
           <h3>S3-Compatible Storage</h3>
-          <p>Powered by Garage &mdash; a lightweight, self-contained storage engine. Works with any AWS SDK, the <code>aws</code> CLI, or S3-compatible client.</p>
+          <p>Powered by Garage &mdash; a lightweight, self-contained storage engine. Works with any AWS SDK, the
+            <code>aws</code> CLI, or S3-compatible client.</p>
         </div>
         <div class="feature-card fade-in">
           <div class="feature-icon">
@@ -146,7 +187,8 @@
             </svg>
           </div>
           <h3>One-Command Install</h3>
-          <p>An interactive script provisions Garage, obtains TLS certificates via Caddy, configures rclone for backups, and wires up nightly cron &mdash; all in one run.</p>
+          <p>An interactive script provisions Garage, obtains TLS certificates via Caddy, configures rclone for backups,
+            and wires up nightly cron &mdash; all in one run.</p>
         </div>
         <div class="feature-card fade-in">
           <div class="feature-icon">
@@ -158,7 +200,8 @@
             </svg>
           </div>
           <h3>Automated Backups</h3>
-          <p>Nightly SFTP sync of every bucket to one or more remote servers with date-based retention. Optional S3-to-S3 replication for cross-node redundancy.</p>
+          <p>Nightly SFTP sync of every bucket to one or more remote servers with date-based retention. Optional
+            S3-to-S3 replication for cross-node redundancy.</p>
         </div>
         <div class="feature-card fade-in">
           <div class="feature-icon">
@@ -170,21 +213,32 @@
             </svg>
           </div>
           <h3>Web Panel with 2FA</h3>
-          <p>Optional Laravel dashboard to browse buckets, manage objects, create and revoke API keys &mdash; secured with TOTP two-factor authentication and SMTP password reset.</p>
+          <p>Optional Laravel dashboard to browse buckets, manage objects, create and revoke API keys &mdash; secured
+            with TOTP two-factor authentication and SMTP password reset.</p>
         </div>
         <div class="feature-card fade-in">
           <div class="feature-icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 14a1 1 0 01-.78-1.63l9.9-10.2a.5.5 0 01.86.46l-1.92 6.02A1 1 0 0013 10h7a1 1 0 01.78 1.63l-9.9 10.2a.5.5 0 01-.86-.46l1.92-6.02A1 1 0 0011 14z"/></svg>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+              stroke-linejoin="round">
+              <path
+                d="M4 14a1 1 0 01-.78-1.63l9.9-10.2a.5.5 0 01.86.46l-1.92 6.02A1 1 0 0013 10h7a1 1 0 01.78 1.63l-9.9 10.2a.5.5 0 01-.86-.46l1.92-6.02A1 1 0 0011 14z" />
+            </svg>
           </div>
           <h3>Panel REST API</h3>
-          <p>11 JSON endpoints covering buckets, keys, permissions, and one-call tenant provisioning &mdash; with built-in Swagger UI and an OpenAPI spec.</p>
+          <p>11 JSON endpoints covering buckets, keys, permissions, and one-call tenant provisioning &mdash; with
+            built-in Swagger UI and an OpenAPI spec.</p>
         </div>
         <div class="feature-card fade-in">
           <div class="feature-icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 4 23 10 17 10"/><path d="M20.49 15a9 9 0 11-2.12-9.36L23 10"/></svg>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+              stroke-linejoin="round">
+              <polyline points="23 4 23 10 17 10" />
+              <path d="M20.49 15a9 9 0 11-2.12-9.36L23 10" />
+            </svg>
           </div>
           <h3>Self-Updating</h3>
-          <p>A nightly cron job pulls the latest release, runs database migrations, rebuilds caches, and keeps the panel in sync &mdash; zero-downtime updates.</p>
+          <p>A nightly cron job pulls the latest release, runs database migrations, rebuilds caches, and keeps the panel
+            in sync &mdash; zero-downtime updates.</p>
         </div>
       </div>
     </div>
@@ -235,7 +289,8 @@
         </div>
         <div class="arch-content">
           <h3>Production-ready from day one</h3>
-          <p>Johnny wraps Garage with everything a production S3 setup needs &mdash; TLS, backups, key management, and a REST API &mdash; on a single Ubuntu VPS.</p>
+          <p>Johnny wraps Garage with everything a production S3 setup needs &mdash; TLS, backups, key management, and a
+            REST API &mdash; on a single Ubuntu VPS.</p>
           <ul class="arch-list">
             <li>
               <svg viewBox="0 0 20 20" fill="currentColor">
@@ -463,43 +518,90 @@
       <div class="section-header fade-in">
         <span class="section-label">Panel API</span>
         <h2>Manage everything over HTTP</h2>
-        <p>Secured with Laravel Sanctum tokens. Interactive docs at <code>/api/docs</code>, OpenAPI spec at <code>/api/openapi.yaml</code>.</p>
+        <p>Secured with Laravel Sanctum tokens. Interactive docs at <code>/api/docs</code>, OpenAPI spec at
+          <code>/api/openapi.yaml</code>.</p>
       </div>
       <div class="api-overview fade-in">
         <div class="api-routes-col">
           <div class="cli-group">
             <h3>
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"/><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"/></svg>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                stroke-linejoin="round">
+                <ellipse cx="12" cy="5" rx="9" ry="3" />
+                <path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3" />
+                <path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5" />
+              </svg>
               Buckets
             </h3>
             <table class="cli-table">
-              <tr><td><span class="api-badge get">GET</span> /api/buckets</td><td>List all buckets</td></tr>
-              <tr><td><span class="api-badge post">POST</span> /api/buckets</td><td>Create a bucket</td></tr>
-              <tr><td><span class="api-badge get">GET</span> /api/buckets/{bucket}</td><td>Bucket metadata &amp; keys</td></tr>
-              <tr><td><span class="api-badge del">DEL</span> /api/buckets/{bucket}</td><td>Delete an empty bucket</td></tr>
+              <tr>
+                <td><span class="api-badge get">GET</span> /api/buckets</td>
+                <td>List all buckets</td>
+              </tr>
+              <tr>
+                <td><span class="api-badge post">POST</span> /api/buckets</td>
+                <td>Create a bucket</td>
+              </tr>
+              <tr>
+                <td><span class="api-badge get">GET</span> /api/buckets/{bucket}</td>
+                <td>Bucket metadata &amp; keys</td>
+              </tr>
+              <tr>
+                <td><span class="api-badge del">DEL</span> /api/buckets/{bucket}</td>
+                <td>Delete an empty bucket</td>
+              </tr>
             </table>
           </div>
           <div class="cli-group">
             <h3>
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0110 0v4"/></svg>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                stroke-linejoin="round">
+                <rect x="3" y="11" width="18" height="11" rx="2" ry="2" />
+                <path d="M7 11V7a5 5 0 0110 0v4" />
+              </svg>
               Keys
             </h3>
             <table class="cli-table">
-              <tr><td><span class="api-badge get">GET</span> /api/keys</td><td>List Garage keys</td></tr>
-              <tr><td><span class="api-badge post">POST</span> /api/keys</td><td>Create a new key</td></tr>
-              <tr><td><span class="api-badge get">GET</span> /api/keys/{keyId}</td><td>Key lookup by id</td></tr>
-              <tr><td><span class="api-badge del">DEL</span> /api/keys/{keyId}</td><td>Delete a key</td></tr>
+              <tr>
+                <td><span class="api-badge get">GET</span> /api/keys</td>
+                <td>List Garage keys</td>
+              </tr>
+              <tr>
+                <td><span class="api-badge post">POST</span> /api/keys</td>
+                <td>Create a new key</td>
+              </tr>
+              <tr>
+                <td><span class="api-badge get">GET</span> /api/keys/{keyId}</td>
+                <td>Key lookup by id</td>
+              </tr>
+              <tr>
+                <td><span class="api-badge del">DEL</span> /api/keys/{keyId}</td>
+                <td>Delete a key</td>
+              </tr>
             </table>
           </div>
           <div class="cli-group">
             <h3>
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a1 1 0 000 1.4l1.6 1.6a1 1 0 001.4 0l3.77-3.77a6 6 0 01-7.94 7.94l-6.91 6.91a2.12 2.12 0 01-3-3l6.91-6.91a6 6 0 017.94-7.94l-3.76 3.76z"/></svg>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                stroke-linejoin="round">
+                <path
+                  d="M14.7 6.3a1 1 0 000 1.4l1.6 1.6a1 1 0 001.4 0l3.77-3.77a6 6 0 01-7.94 7.94l-6.91 6.91a2.12 2.12 0 01-3-3l6.91-6.91a6 6 0 017.94-7.94l-3.76 3.76z" />
+              </svg>
               Permissions &amp; Provisioning
             </h3>
             <table class="cli-table">
-              <tr><td><span class="api-badge post">POST</span> /api/buckets/{b}/keys</td><td>Grant key access</td></tr>
-              <tr><td><span class="api-badge del">DEL</span> /api/buckets/{b}/keys/{k}</td><td>Revoke key access</td></tr>
-              <tr><td><span class="api-badge post">POST</span> /api/buckets/provision</td><td>Bucket + key + credentials in one call</td></tr>
+              <tr>
+                <td><span class="api-badge post">POST</span> /api/buckets/{b}/keys</td>
+                <td>Grant key access</td>
+              </tr>
+              <tr>
+                <td><span class="api-badge del">DEL</span> /api/buckets/{b}/keys/{k}</td>
+                <td>Revoke key access</td>
+              </tr>
+              <tr>
+                <td><span class="api-badge post">POST</span> /api/buckets/provision</td>
+                <td>Bucket + key + credentials in one call</td>
+              </tr>
             </table>
           </div>
         </div>
@@ -525,15 +627,20 @@
             <div class="api-response-header">Response &middot; 201 Created</div>
             <div class="code-block">
               <span style="color:#64748b">{</span><br>
-              &nbsp;&nbsp;<span style="color:#93c5fd">"bucket"</span>: <span style="color:#86efac">"customer-orders"</span>,<br>
+              &nbsp;&nbsp;<span style="color:#93c5fd">"bucket"</span>: <span
+                style="color:#86efac">"customer-orders"</span>,<br>
               &nbsp;&nbsp;<span style="color:#93c5fd">"region"</span>: <span style="color:#86efac">"johnny"</span>,<br>
-              &nbsp;&nbsp;<span style="color:#93c5fd">"endpoint"</span>: <span style="color:#86efac">"https://s3.example.com"</span>,<br>
+              &nbsp;&nbsp;<span style="color:#93c5fd">"endpoint"</span>: <span
+                style="color:#86efac">"https://s3.example.com"</span>,<br>
               &nbsp;&nbsp;<span style="color:#93c5fd">"path_style"</span>: <span style="color:#fbbf24">true</span>,<br>
               &nbsp;&nbsp;<span style="color:#93c5fd">"credentials"</span>: <span style="color:#64748b">{</span><br>
-              &nbsp;&nbsp;&nbsp;&nbsp;<span style="color:#93c5fd">"access_key_id"</span>: <span style="color:#86efac">"GK..."</span>,<br>
-              &nbsp;&nbsp;&nbsp;&nbsp;<span style="color:#93c5fd">"secret_access_key"</span>: <span style="color:#86efac">"..."</span><br>
+              &nbsp;&nbsp;&nbsp;&nbsp;<span style="color:#93c5fd">"access_key_id"</span>: <span
+                style="color:#86efac">"GK..."</span>,<br>
+              &nbsp;&nbsp;&nbsp;&nbsp;<span style="color:#93c5fd">"secret_access_key"</span>: <span
+                style="color:#86efac">"..."</span><br>
               &nbsp;&nbsp;<span style="color:#64748b">}</span>,<br>
-              &nbsp;&nbsp;<span style="color:#93c5fd">"env"</span>: <span style="color:#64748b">{</span> <span style="color:#475569">...</span> <span style="color:#64748b">}</span><br>
+              &nbsp;&nbsp;<span style="color:#93c5fd">"env"</span>: <span style="color:#64748b">{</span> <span
+                style="color:#475569">...</span> <span style="color:#64748b">}</span><br>
               <span style="color:#64748b">}</span>
             </div>
           </div>
@@ -548,40 +655,49 @@
       <div class="section-header fade-in">
         <span class="section-label">Laravel Integration</span>
         <h2>Drop-in S3 disk for Laravel</h2>
-        <p>Johnny is fully compatible with Laravel's S3 filesystem driver. Paste the credentials into your <code>.env</code> and start storing files immediately.</p>
+        <p>Johnny is fully compatible with Laravel's S3 filesystem driver. Install the Flysystem adapter, paste the
+          credentials into your <code>.env</code>, and start storing files.</p>
       </div>
-      <div class="laravel-grid fade-in">
-        <div class="code-block">
-          <span class="comment"># Add to your Laravel .env</span><br>
-          <br>
-          FILESYSTEM_DISK=s3<br>
-          <br>
-          AWS_ACCESS_KEY_ID=<span style="color:#86efac">GK....123</span><br>
-          AWS_SECRET_ACCESS_KEY=<span style="color:#86efac">012...XYZ</span><br>
-          AWS_DEFAULT_REGION=<span style="color:#86efac">johnny</span><br>
-          AWS_BUCKET=<span style="color:#86efac">my-bucket</span><br>
-          AWS_ENDPOINT=<span style="color:#86efac">https://s3.my-domain.com</span><br>
-          AWS_USE_PATH_STYLE_ENDPOINT=<span style="color:#fbbf24">true</span>
+      <div class="laravel-steps fade-in">
+        <div class="step">
+          <div class="step-number">1</div>
+          <div class="step-content">
+            <h3>Install the S3 driver</h3>
+            <div class="code-block">
+              <span class="prompt">$</span> composer require league/flysystem-aws-s3-v3 "<span
+                style="color:#86efac">^3.0</span>" <span class="flag">--with-all-dependencies</span>
+            </div>
+          </div>
         </div>
-        <div class="laravel-details">
-          <ul class="arch-list">
-            <li>
-              <svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
-              Works with the default <code>s3</code> disk in <code>filesystems.php</code> &mdash; no custom driver needed
-            </li>
-            <li>
-              <svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
-              The provisioning API returns these same keys in an <code>env</code> map &mdash; automate tenant onboarding end to end
-            </li>
-            <li>
-              <svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
-              Path-style addressing is enabled &mdash; <code>Storage::disk('s3')->put()</code> works out of the box
-            </li>
-            <li>
-              <svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
-              Compatible with any S3 client: Flysystem, AWS SDK for PHP, Intervention Image, Spatie Media Library
-            </li>
-          </ul>
+        <div class="step">
+          <div class="step-number">2</div>
+          <div class="step-content">
+            <h3>Configure your <code>.env</code></h3>
+            <div class="code-block">
+              FILESYSTEM_DISK=s3<br>
+              <br>
+              AWS_ACCESS_KEY_ID=<span style="color:#86efac">GK....123</span><br>
+              AWS_SECRET_ACCESS_KEY=<span style="color:#86efac">012...XYZ</span><br>
+              AWS_DEFAULT_REGION=<span style="color:#86efac">johnny</span><br>
+              AWS_BUCKET=<span style="color:#86efac">my-bucket</span><br>
+              AWS_ENDPOINT=<span style="color:#86efac">https://s3.my-domain.com</span><br>
+              AWS_USE_PATH_STYLE_ENDPOINT=<span style="color:#fbbf24">true</span>
+            </div>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-number">3</div>
+          <div class="step-content">
+            <h3>Use it</h3>
+            <div class="code-block">
+              <span style="color:#93c5fd">Storage</span>::<span style="color:#86efac">disk</span>(<span
+                style="color:#fbbf24">'s3'</span>)-><span style="color:#86efac">put</span>(<span
+                style="color:#fbbf24">'avatars/photo.jpg'</span>, $contents);
+            </div>
+            <p>Works with the default <code>s3</code> disk in <code>filesystems.php</code> &mdash; no custom driver
+              needed. Compatible with Flysystem, AWS SDK for PHP, Intervention Image, and Spatie Media Library. The
+              provisioning API returns these same keys in an <code>env</code> map for automated tenant onboarding.</p>
+          </div>
         </div>
       </div>
     </div>
@@ -590,8 +706,9 @@
   <!-- ── CTA ────────────────────────────────── -->
   <section class="cta">
     <div class="cta-box fade-in">
-      <h2>Ready to own your object storage?</h2>
-      <p>Deploy Johnny on a single Ubuntu VPS and stop paying per-GB. S3-compatible, fully automated, open source &mdash; forever.</p>
+      <h2>Ready for the next step?</h2>
+      <p>Deploy Johnny on a single Ubuntu VPS and stop paying per-GB.<br>S3-compatible, fully automated, open source
+        &mdash; forever.</p>
       <div class="hero-actions" style="justify-content: center;">
         <a href="https://github.com/andreapollastri/johnny" target="_blank" rel="noopener" class="btn btn-white">
           <svg viewBox="0 0 16 16" fill="currentColor" width="18" height="18">

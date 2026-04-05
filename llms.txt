@@ -1,0 +1,81 @@
+# Johnny — Self-hosted S3 Storage Platform
+
+> S3-compatible object storage, automated backups, and an elegant web panel — in one install. Powered by Garage.
+
+## What is Johnny?
+
+Johnny is an open-source, self-hosted S3-compatible object storage platform. It wraps Garage with production-ready automation: TLS via Caddy, nightly SFTP backups with retention, a `johnny` CLI, and an optional Laravel web panel with two-factor authentication and a full REST API.
+
+## Key Features
+
+- **S3-Compatible Storage** — Powered by Garage. Works with any AWS SDK, CLI, or S3 client.
+- **One-Command Install** — Single interactive script sets up Garage, Caddy (Let's Encrypt TLS), rclone, and cron.
+- **Automated SFTP Backups** — Nightly sync of every bucket to remote SFTP servers with date-based retention.
+- **Optional S3-to-S3 Replication** — Cross-node redundancy via Garage-to-Garage replication.
+- **Web Panel with 2FA** — Laravel dashboard for buckets, objects, API keys. TOTP 2FA and SMTP password reset.
+- **Panel REST API** — 11 JSON endpoints for buckets, keys, permissions, and one-call tenant provisioning. Swagger UI at `/api/docs`, OpenAPI spec at `/api/openapi.yaml`.
+- **Self-Updating** — Nightly cron pulls the latest release, runs migrations, and rebuilds caches.
+
+## Requirements
+
+- Ubuntu 24.04 LTS
+- DNS A/AAAA record pointing to the server (for Let's Encrypt)
+- For backups: SSH/SFTP accessible remote servers
+
+## Quick Start
+
+```bash
+sudo git clone https://github.com/andreapollastri/johnny /opt/johnny
+cd /opt/johnny
+sudo bash scripts/autoinstall.sh
+source /etc/johnny/credentials/default-s3.env
+aws s3 ls --endpoint-url "$AWS_ENDPOINT_URL"
+```
+
+## Panel API Endpoints
+
+All routes require a Laravel Sanctum Bearer token.
+
+### Buckets
+- `GET /api/buckets` — List all buckets
+- `POST /api/buckets` — Create a bucket
+- `GET /api/buckets/{bucket}` — Bucket metadata & keys
+- `DELETE /api/buckets/{bucket}` — Delete an empty bucket
+
+### Keys
+- `GET /api/keys` — List Garage keys
+- `POST /api/keys` — Create a new key
+- `GET /api/keys/{keyId}` — Key lookup by id
+- `DELETE /api/keys/{keyId}` — Delete a key
+
+### Permissions & Provisioning
+- `POST /api/buckets/{bucket}/keys` — Grant key access (read, write, owner)
+- `DELETE /api/buckets/{bucket}/keys/{keyId}` — Revoke key access
+- `POST /api/buckets/provision` — Create bucket + key + S3 credentials in one call
+
+## Laravel Integration
+
+```bash
+composer require league/flysystem-aws-s3-v3 "^3.0" --with-all-dependencies
+```
+
+Add to `.env`:
+
+```
+FILESYSTEM_DISK=s3
+AWS_ACCESS_KEY_ID=GK....123
+AWS_SECRET_ACCESS_KEY=012...XYZ
+AWS_DEFAULT_REGION=johnny
+AWS_BUCKET=my-bucket
+AWS_ENDPOINT=https://s3.my-domain.com
+AWS_USE_PATH_STYLE_ENDPOINT=true
+```
+
+Works with the default `s3` disk in `filesystems.php`. Compatible with Flysystem, AWS SDK for PHP, Intervention Image, Spatie Media Library.
+
+## Links
+
+- Website: https://johnny.web.ap.it
+- GitHub: https://github.com/andreapollastri/johnny
+- Documentation: https://github.com/andreapollastri/johnny/blob/main/README.md
+- License: MIT

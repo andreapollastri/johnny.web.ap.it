@@ -781,26 +781,41 @@ img {
 
 /* ── Laravel ─────────────────────────────────── */
 
-.laravel-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 2.5rem;
-  align-items: start;
-  max-width: 960px;
+.laravel-steps {
+  max-width: 720px;
   margin: 0 auto;
 }
 
-.laravel-details {
-  padding-top: 0.5rem;
+.laravel-steps .step-content p {
+  font-size: 0.875rem;
+  color: var(--color-text-muted);
+  line-height: 1.7;
+  margin-top: 0.75rem;
 }
 
-.laravel-details code {
+.laravel-steps .step-content p code {
   font-family: var(--font-mono);
   font-size: 0.85em;
   background: var(--color-code-bg);
   padding: 0.1rem 0.35rem;
   border-radius: 4px;
   color: var(--color-accent);
+}
+
+/* ── Hero screenshot ─────────────────────────── */
+
+.hero-screenshot {
+  max-width: min(880px, 100%);
+  margin: 3.5rem auto 0;
+  border-radius: var(--radius);
+  overflow: hidden;
+  box-shadow: 0 24px 64px rgba(15, 23, 42, 0.18), 0 0 0 1px var(--color-border);
+}
+
+.hero-screenshot img {
+  width: 100%;
+  height: auto;
+  display: block;
 }
 
 /* ── CTA ─────────────────────────────────────── */
@@ -914,9 +929,6 @@ img {
     grid-template-columns: 1fr;
   }
 
-  .laravel-grid {
-    grid-template-columns: 1fr;
-  }
 }
 
 @media (max-width: 640px) {
@@ -1276,8 +1288,9 @@ img {
     font-size: 0.6875rem;
   }
 
-  .laravel-details {
-    padding-top: 0;
+  .hero-screenshot {
+    margin-top: 2.5rem;
+    border-radius: var(--radius-sm);
   }
 
   /* ── CTA mobile ── */
