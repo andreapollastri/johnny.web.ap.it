@@ -383,6 +383,19 @@ img {
   line-height: 1.7;
 }
 
+.section-header-wide {
+  max-width: 44rem;
+}
+
+.section-header p code {
+  font-family: var(--font-mono);
+  font-size: 0.95em;
+  background: var(--color-code-bg);
+  padding: 0.1rem 0.35rem;
+  border-radius: 4px;
+  color: var(--color-text);
+}
+
 .container {
   max-width: var(--max-w);
   margin: 0 auto;
