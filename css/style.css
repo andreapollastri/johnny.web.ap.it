@@ -758,6 +758,14 @@ img {
   gap: 0.5rem;
   margin: 0;
   font-family: var(--font-sans);
+  font-size: 0.9375rem;
+  font-weight: 700;
+}
+
+.api-example-header h3 svg {
+  width: 18px;
+  height: 18px;
+  color: var(--color-accent);
 }
 
 .api-example-header .api-route {
