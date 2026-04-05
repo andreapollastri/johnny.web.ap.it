@@ -358,9 +358,7 @@
             <h3>Clone the repository</h3>
             <p>Clone outside <code>/root</code> so the Laravel panel can run as <code>www-data</code>.</p>
             <div class="code-block">
-              <span class="prompt">$</span> sudo mkdir -p /opt<br>
               <span class="prompt">$</span> sudo git clone https://github.com/andreapollastri/johnny /opt/johnny<br>
-              <span class="prompt">$</span> cd /opt/johnny
             </div>
           </div>
         </div>
@@ -370,7 +368,7 @@
             <h3>Run the autoinstaller</h3>
             <p>The interactive wizard installs dependencies, configures Garage, Caddy, rclone, and cron.</p>
             <div class="code-block">
-              <span class="prompt">$</span> sudo bash scripts/autoinstall.sh
+              <span class="prompt">$</span> sudo bash /opt/johnny/scripts/autoinstall.sh
             </div>
           </div>
         </div>
@@ -585,7 +583,7 @@
                 <path
                   d="M14.7 6.3a1 1 0 000 1.4l1.6 1.6a1 1 0 001.4 0l3.77-3.77a6 6 0 01-7.94 7.94l-6.91 6.91a2.12 2.12 0 01-3-3l6.91-6.91a6 6 0 017.94-7.94l-3.76 3.76z" />
               </svg>
-              Permissions &amp; Provisioning
+              Permissions
             </h3>
             <table class="cli-table">
               <tr>
@@ -596,17 +594,23 @@
                 <td><span class="api-badge del">DEL</span> /api/buckets/{b}/keys/{k}</td>
                 <td>Revoke key access</td>
               </tr>
-              <tr>
-                <td><span class="api-badge post">POST</span> /api/buckets/provision</td>
-                <td>Bucket + key + credentials in one call</td>
-              </tr>
             </table>
           </div>
         </div>
         <div class="api-example">
           <div class="api-example-header">
+            <h3>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                stroke-linejoin="round">
+                <path d="M12 3L5.5 14h13L12 3z" />
+                <path d="M3 14c0 2.2 4 4 9 4s9-1.8 9-4" />
+                <path d="M11 5.5l2 4M13 5.5l-2 4" />
+              </svg>
+              Provisioning
+            </h3>
             <span class="api-method">POST</span>
             <span class="api-path">/api/buckets/provision</span>
+            <p>Bucket + key + credentials in one call</p>
           </div>
           <div class="code-block">
             <span class="comment"># Create a Sanctum token</span><br>
@@ -637,8 +641,6 @@
               &nbsp;&nbsp;&nbsp;&nbsp;<span style="color:#93c5fd">"secret_access_key"</span>: <span
                 style="color:#86efac">"..."</span><br>
               &nbsp;&nbsp;<span style="color:#64748b">}</span>,<br>
-              &nbsp;&nbsp;<span style="color:#93c5fd">"env"</span>: <span style="color:#64748b">{</span> <span
-                style="color:#475569">...</span> <span style="color:#64748b">}</span><br>
               <span style="color:#64748b">}</span>
             </div>
           </div>
